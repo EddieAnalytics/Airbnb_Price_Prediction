@@ -29,8 +29,6 @@ All of the results are produced from Python.
 ![Xnip2022-03-28_01-16-15](https://user-images.githubusercontent.com/33715191/160359524-44306916-34ac-45c6-ada7-e181373a7188.jpg)
 
 
-![Xnip2022-02-06_23-56-12](https://user-images.githubusercontent.com/33715191/152747518-983b67e3-9c62-4363-94fd-fa1b8a1f97a1.jpg) <br />
-
 ### Listing Price Distribution
 ![Xnip2022-03-28_01-16-34](https://user-images.githubusercontent.com/33715191/160359306-13eb0d9d-c34a-41a5-afa3-dcd17d1dcdad.jpg)
 ![Xnip2022-03-28_01-17-50](https://user-images.githubusercontent.com/33715191/160359323-45bdaf8c-2a52-4b40-97f7-5becc1c6d1b7.jpg)
