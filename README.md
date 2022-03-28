@@ -1,78 +1,72 @@
 # Airbnb_Price_Prediction
-Problem
+# Context
+Since 2008, guests and hosts have used Airbnb to expand on traveling possibilities and present more unique, personalized way of experiencing the world. This dataset describes the listing activity and metrics in NYC, NY for 2019. I want to predict the price of the listings based on the given features. <br />
 
-The datasets contain the measures of the song features for roughly 41,000 songs from 1960 to 2019. The target column indicates if a song is a Hit or Flop. Hit songs are the ones that have been featured on the Billboard at least once. There is not a clear answer on which song features are most important in making a song a hit. To solve the problem, my team used R to build prediction models to find out what the most important song features are in modern hit songs.
+Content<br />
 
-Goal
+This data file includes all needed information to find out more about hosts, geographical availability, necessary metrics to make predictions and draw conclusions.<br />
 
-The goal is to predict whether a song would be a hit or a flop by examining audio features of songs from 1960 to 2019. For example, if a music studio were to start a new project, would features like loudness, acousticness impact the song's popularity more than others?
+Acknowledgements<br />
 
-Key Metrics
+This public dataset is part of Airbnb, and the original source can be found on this link: <br />
+http://insideairbnb.com
 
--Prediction accuracy of the model 
--Variable importance
--Prediction Accuracy with different dataset groups
+# Goal
+The goal is to predict the listing price for any given Airbnb Listing. For example, a potential owner of a house/apartment wants to list their unit, what should they consider doing to determine their listing prices and what factors affect the prices the most?
 
-Results
+# Key Metrics
+-Prediction accuracy of the model <br />
+-Variable importance<br />
+-Average Listing Prices of units that share similar characteristics<br />
 
-All of the models were created using R.
+# Results
+All of the results are produced from Python.
 
-Exploratory Analysis:
+## Exploratory Analysis: 
+### Unit Listing Plot from longitude and latitude
+![Xnip2022-03-28_01-16-03](https://user-images.githubusercontent.com/33715191/160359197-9802c239-7e85-4417-a469-4477f92f5887.jpg)
+### Clusters the units can be broken into:
+![Xnip2022-03-28_01-16-15](https://user-images.githubusercontent.com/33715191/160359524-44306916-34ac-45c6-ada7-e181373a7188.jpg)
 
-Song Feature Changes From 1960-2019:
 
-Xnip2022-02-06_23-55-48
+![Xnip2022-02-06_23-56-12](https://user-images.githubusercontent.com/33715191/152747518-983b67e3-9c62-4363-94fd-fa1b8a1f97a1.jpg) <br />
 
-Xnip2022-02-06_23-56-12
+### Listing Price Distribution
+![Xnip2022-03-28_01-16-34](https://user-images.githubusercontent.com/33715191/160359306-13eb0d9d-c34a-41a5-afa3-dcd17d1dcdad.jpg)
+![Xnip2022-03-28_01-17-50](https://user-images.githubusercontent.com/33715191/160359323-45bdaf8c-2a52-4b40-97f7-5becc1c6d1b7.jpg)
 
-Hit Song vs. Non-Hit Song Instrumentalness Comparison:
 
-Xnip2022-02-06_23-58-58
+## Count of units in different neighborhoods and neighborhood groups
+![Xnip2022-03-28_01-18-08](https://user-images.githubusercontent.com/33715191/160359407-f86f7841-9648-4bed-a4eb-4d205b2279f6.jpg)
+![Xnip2022-03-28_01-18-21](https://user-images.githubusercontent.com/33715191/160359413-a47562da-5b4d-4008-873a-094045d2822b.jpg)
+![Xnip2022-03-28_01-17-12](https://user-images.githubusercontent.com/33715191/160359502-3f371ac6-b470-4d86-ad18-097bdf23f064.jpg)
 
-Decision Tree:
+### Scatterplots of Number of Reviews Against Price
+![Xnip2022-03-28_01-18-39](https://user-images.githubusercontent.com/33715191/160359682-d7b34177-0963-4245-a445-4c39600ca79d.jpg)
 
-Xnip2022-02-07_00-00-17
-We can wee that instrumentalness is the most important song feature deciding if a song would be a hit.
+### Linear Regression and Feature Importance
+![Xnip2022-03-28_01-20-11](https://user-images.githubusercontent.com/33715191/160360072-519691df-ab8e-49cc-98ae-0bf1045738e4.jpg)
+![Xnip2022-03-28_01-19-57](https://user-images.githubusercontent.com/33715191/160359969-7744c5cc-2080-4d65-ba35-75235ac35482.jpg)
 
-Logistic Regression:
+### Find The Features That Have the Highest Interactions With Each Other
+![Xnip2022-03-28_01-20-33](https://user-images.githubusercontent.com/33715191/160360169-6bec0a47-7d41-4592-9a46-3bbbbec4df5e.jpg)
 
-ROC Curve and Confusion Matrix (all decades)
+### Linear Regression After Generating Interaction Featuures
+![Xnip2022-03-28_01-42-10](https://user-images.githubusercontent.com/33715191/160360775-f09705ae-50bd-4846-8bce-965e8f93a28e.jpg)
 
-Xnip2022-02-07_00-03-32
+### Gradient Boosting Regressor Results
+![Xnip2022-03-28_01-43-46](https://user-images.githubusercontent.com/33715191/160360962-e78ab740-4b6e-4924-becb-0255070b0d14.jpg)
 
-Roc Curve and Confusion Matrix (1990-2010s):
+Gradient Boosting Regressor has the highest accuracy![Uploading Xnip2022-03-28_01-43-46.jpg…]()
 
-Xnip2022-02-07_00-05-18
-The result of logistic regression is similar to the results of classification tree.
 
-Random Forest:
+## Conclusion:
+### Modeling Conclusions: 
+Originally, this model only had about 10% accuracy due to having a high number of features in the dataset. After cleaning the data, taking out outliers of the numeric features, the model's accuracy improved to about 45%. Then I engineered new features including location cluster, availability level, and whether a dataset has a high number of reviews. Also, I categorized the low frequency count neighborhoods into one category 'other.' The linear regression model's accuracy increased to 53%. Gradient Boosting Regressor was able to generate 60% accuracy. 
 
-Out of bag Error by Number of Trees:
+### Additional Relevant Data Needed & Future Improvements:
+There are also other factors to consider such as seasonlity, demand, number of photos that the Airbnb listing has, and the review ratings of the listings. Some of these factors are not included in this particular dataset. However, this model can also be applied to other datasets to capture more accurate results. <br />
+This project is really fun to work on. It really emphasizes the importance of feature engineering and interpreting the data before building any predictive models. <br />
 
-Xnip2022-02-07_00-10-07
-
-Importance of Variables:
-
-Xnip2022-02-07_00-11-09
-
-Random Forest has the highest accuracy out of all 3 predictive models that we used.
-
-Conclusion:
-
-Modeling Conclusions:
-
-A song that has more vocals (less instrumentals), is more suitable for dancing (temp, rhythm, beat, regularity), and is less acoustic tends to produce a hit. From all three models we can conclude that instrumentalness has the highest hit song predictive power followed by danceability and acousticness. There is some variability throughout the decades. For example, acousticness was more important between 1960s to 1980s. And danceability and loudness have become more important in the past 30 years. We found that the accuracy was higher when we group the songs in 30-year groups. Random forest has the highest prediction accuracy of 84.29%, with classification trees at 79.26%, and classification with logistic regression at 79.65%.
-
-Additional Relevant Data Needed & Future Improvements:
-
-While the insights we obtained are insightful, understanding what makes a song a hit based on only the audio features does not give us a big enough lens to accurately predict its popularity. Even if there were highly accurate guidelines for audio features that made a song popular, there are still additional relevant factors needed to actually produce a hit song. If an artist produces a song with predicted hit audio features, it is not guaranteed that song will become a hit. In reality, factors such as genre, monthly listeners, lyrics, number of albums produced, and number of previous hit songs, all play a deciding factorinthesuccessofasong. Forexample,analyzinglyrics,overallsentiment,amountofvocals,and synthetic sounds used could help the artists gain a better idea of the song’s composition. Another example would be if Adele releases a new song, it will most likely become a hit song solely because she has an already established fan base, has other top hit songs, and writes lyrics that resonate with her audience. Thus even if she produces a song with less popular audio features, say a song that is more instrumental and has less vocals, the song might still become a hit. Therefore, we need this type of data to be able to conclusively say what makes a song a hit.
-
-However, even if we were able to gather all these features above, it would be quite hard to analyze. For example it would be hard to confidently say that only specific artists will produce a hit, there are more factors to consider.
-
-During our research our team did try to obtain this additional information from other datasets, but when we combined it with our original data set, we lost a significant portion of our data. This was largely due to different data sets having different lists of hit songs or having multiple songs with the same song title. Thus, obtaining this specific data and ensuring all the different data sets have the same list of hit songs could be another limitation to this type of project.
-
-Reference For The Dataset
-
-https://www.kaggle.com/theoverman/the-spotify-hit-predictor-dataset
-
-https://github.com/fortytwo102/the-spotify-hit-predictor-dataset
+# Reference For The Dataset
+https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data
